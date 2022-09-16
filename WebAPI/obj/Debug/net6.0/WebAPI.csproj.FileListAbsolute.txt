@@ -33,3 +33,7 @@ D:\C# Projects\Web\DepartmentsWeb\WebAPI\obj\Debug\net6.0\WebAPI.dll
 D:\C# Projects\Web\DepartmentsWeb\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
 D:\C# Projects\Web\DepartmentsWeb\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 D:\C# Projects\Web\DepartmentsWeb\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
+D:\C# Projects\Web\DepartmentsWeb\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\C# Projects\Web\DepartmentsWeb\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\C# Projects\Web\DepartmentsWeb\WebAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\C# Projects\Web\DepartmentsWeb\WebAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

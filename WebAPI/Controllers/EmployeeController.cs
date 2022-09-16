@@ -10,9 +10,12 @@ namespace WebAPI.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly DataContext _dataContext;
-        public EmployeeController(DataContext dataContext)
+        private readonly IWebHostEnvironment _env;
+
+        public EmployeeController(DataContext dataContext, IWebHostEnvironment env)
         {
             _dataContext = dataContext;
+            _env = env;
         }
         // GET: api/<EmployeeController>
         [HttpGet]
@@ -76,7 +79,7 @@ namespace WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAsync(int id)
         {
-            var employee= await _dataContext.Employees.FindAsync(id);
+            var employee = await _dataContext.Employees.FindAsync(id);
             if (employee == null)
             {
                 return NotFound();
@@ -86,6 +89,29 @@ namespace WebAPI.Controllers
                 _dataContext.Employees.Remove(employee);
                 await _dataContext.SaveChangesAsync();
                 return Ok();
+            }
+        }
+
+        [Route("SaveFile")]
+        [HttpPost]
+        public JsonResult SaveFile()
+        {
+            try
+            {
+                var httpRequest = Request.Form;
+                var postedFile = httpRequest.Files[0];
+                string fileName = postedFile.FileName;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + fileName;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+                return new JsonResult(fileName);
+            }
+            catch (Exception)
+            {
+                return new JsonResult("anonymous.png");
             }
         }
     }
