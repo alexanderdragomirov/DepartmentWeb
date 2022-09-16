@@ -19,9 +19,9 @@ namespace WebAPI.Controllers
         }
         // GET: api/<EmployeeController>
         [HttpGet]
-        public async Task<IEnumerable<Employee>> Get()
+        public async Task<JsonResult> Get()
         {
-            return await _dataContext.Employees.ToListAsync();
+            return new JsonResult( await _dataContext.Employees.ToListAsync());
         }
 
         // GET api/<EmployeeController>/5

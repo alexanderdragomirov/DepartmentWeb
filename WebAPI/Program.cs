@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using WebAPI.Data;
 using Newtonsoft.Json.Serialization;
+using WebAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,12 +39,12 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
+//Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
